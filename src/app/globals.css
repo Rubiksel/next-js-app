@@ -27,16 +27,134 @@ body {
 
 .nav-trigger,
 .nav-link {
-  @apply flex items-center gap-1 py-2 text-lg font-medium text-gray-700 rounded-md transition;
+  @apply flex items-center gap-1 px-1 py-2 text-lg font-medium text-gray-700 rounded-md transition;
   @apply hover:text-lime-700 hover:bg-lime-50; /* custom lime shades */
+}
+
+.nav-trigger svg {
+  @apply w-4 h-4 transition-transform;
+}
+.nav-trigger[data-state="open"] svg {
+  @apply rotate-180;
 }
 
 /* Dropdown container */
 .dropdown {
   @apply absolute top-full left-0 mt-2 bg-white rounded-xl shadow-lg p-6 border border-gray-100;
+  animation-duration: 250ms;
+  animation-timing-function: ease;
+}
+
+.dropdown[data-motion="from-start"] {
+  animation-name: enterFromLeft;
+}
+.dropdown[data-motion="from-end"] {
+  animation-name: enterFromRight;
+}
+.dropdown[data-motion="to-start"] {
+  animation-name: exitToLeft;
+}
+.dropdown[data-motion="to-end"] {
+  animation-name: exitToRight;
+}
+
+.dropdown[data-state="open"] {
+  animation: scaleIn 200ms ease, fadeIn 200ms ease;
+}
+.dropdown[data-state="closed"] {
+  animation: scaleOut 150ms ease, fadeOut 150ms ease;
 }
 
 /* Section heading */
 .dropdown-section {
-  @apply text-xs font-semibold uppercase tracking-wide text-gray-400 mb-2;
+  @apply text-xs font-semibold uppercase tracking-wide text-gray-400 mb-3;
+}
+
+.ListItemLink {
+  @apply block rounded-md px-4 py-2 text-base text-gray-700 transition;
+  @apply hover:bg-lime-50 hover:text-lime-700;
+}
+
+@keyframes enterFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes enterFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes exitToRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+}
+
+@keyframes exitToLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+}
+
+@keyframes scaleIn {
+	from {
+		opacity: 0;
+		transform: rotateX(-30deg) scale(0.9);
+	}
+	to {
+		opacity: 1;
+		transform: rotateX(0deg) scale(1);
+	}
+}
+
+@keyframes scaleOut {
+	from {
+		opacity: 1;
+		transform: rotateX(0deg) scale(1);
+	}
+	to {
+		opacity: 0;
+		transform: rotateX(-10deg) scale(0.95);
+	}
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }

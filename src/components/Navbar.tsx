@@ -20,7 +20,7 @@ export default function Navbar() {
       </Link>
 
       {/* Navigation */}
-      <NavigationMenu.List className="flex gap-6">
+      <NavigationMenu.List className="flex ">
         <NavigationMenu.Item>
           <NavigationMenu.Link asChild>
             <Link className="nav-link" href="/">
