@@ -24,3 +24,19 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.nav-trigger,
+.nav-link {
+  @apply flex items-center gap-1 py-2 text-lg font-medium text-gray-700 rounded-md transition;
+  @apply hover:text-lime-700 hover:bg-lime-50; /* custom lime shades */
+}
+
+/* Dropdown container */
+.dropdown {
+  @apply absolute top-full left-0 mt-2 bg-white rounded-xl shadow-lg p-6 border border-gray-100;
+}
+
+/* Section heading */
+.dropdown-section {
+  @apply text-xs font-semibold uppercase tracking-wide text-gray-400 mb-2;
+}
