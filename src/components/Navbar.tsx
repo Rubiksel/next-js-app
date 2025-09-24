@@ -20,7 +20,7 @@ export default function Navbar() {
       </Link>
 
       {/* Navigation */}
-      <NavigationMenu.List className="flex ">
+      <NavigationMenu.List className="flex">
         <NavigationMenu.Item>
           <NavigationMenu.Link asChild>
             <Link className="nav-link" href="/">
@@ -100,7 +100,7 @@ export default function Navbar() {
         <Button asChild variant="surface" size="4">
           <Link href="/signin">Sign in</Link>
         </Button>
-        <Button asChild size="4" color="lime">
+        <Button asChild size="4">
           <Link href="/signup">Try for free</Link>
         </Button>
       </div>
