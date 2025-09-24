@@ -115,7 +115,7 @@ function DropdownLink({ href, children }: { href: string; children: React.ReactN
       <NavigationMenu.Link asChild>
         <Link
           href={href}
-          className="block rounded-md px-3 py-2 text-sm text-gray-700 hover:bg-lime-50 hover:text-lime-700 transition"
+          className="block rounded-md py-2 text-sm text-gray-700 hover:bg-lime-50 hover:text-lime-700 transition"
         >
           {children}
         </Link>
