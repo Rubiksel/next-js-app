@@ -8,108 +8,150 @@ import Image from "next/image";
 
 export default function Navbar() {
   return (
-    <NavigationMenu.Root className="flex justify-between items-center p-4 shadow bg-white">
-      {/* Logo */}
-      <Link href="/" className="flex items-center">
-        <Image
-          src="/mojo-logo-big.png"
-          alt="Mojo Helpdesk Logo"
-          width={300}
-          height={82}
-        />
-      </Link>
+    // <NavigationMenu.Root className="flex justify-between items-center p-4 shadow bg-white">
+    <nav className="w-full bg-white shadow mb-8">
+      <div className="max-w-screen-xl mx-auto px-4 flex justify-between items-center h-20">
+        {/* Logo */}
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/mojo-logo-big.png"
+            alt="Mojo Helpdesk Logo"
+            width={300}
+            height={82}
+          />
+        </Link>
 
-      {/* Navigation */}
-      <NavigationMenu.List className="flex">
-        <NavigationMenu.Item>
-          <NavigationMenu.Link asChild>
-            <Link className="nav-link" href="/">
-              Features
-            </Link>
-          </NavigationMenu.Link>
-        </NavigationMenu.Item>
+        {/* Navigation */}
 
-        {/* Solutions */}
-        <NavigationMenu.Item>
-          <NavigationMenu.Trigger className="nav-trigger">
-            Solutions <CaretDownIcon />
-          </NavigationMenu.Trigger>
-          <NavigationMenu.Content className="dropdown">
-            <ul className="grid grid-cols-2 gap-8">
-              <li>
-                <h3 className="dropdown-section">By Department</h3>
-                <ul className="space-y-1">
-                  <DropdownLink href="/solutions/it">IT Service Desk</DropdownLink>
-                  <DropdownLink href="/solutions/customer">Customer Service</DropdownLink>
-                  <DropdownLink href="/solutions/asset">Asset Management</DropdownLink>
+        <NavigationMenu.Root className="flex">
+          <NavigationMenu.List className="flex">
+            <NavigationMenu.Item>
+              <NavigationMenu.Link asChild>
+                <Link className="nav-link" href="/">
+                  Features
+                </Link>
+              </NavigationMenu.Link>
+            </NavigationMenu.Item>
+
+            {/* Solutions */}
+            <NavigationMenu.Item>
+              <NavigationMenu.Trigger className="nav-trigger">
+                Solutions <CaretDownIcon />
+              </NavigationMenu.Trigger>
+              <NavigationMenu.Content className="dropdown">
+                <ul className="grid grid-cols-2 gap-8">
+                  <li>
+                    <h3 className="dropdown-section">By Department</h3>
+                    <ul className="space-y-1">
+                      <DropdownLink href="/solutions/it">
+                        IT Service Desk
+                      </DropdownLink>
+                      <DropdownLink href="/solutions/customer">
+                        Customer Service
+                      </DropdownLink>
+                      <DropdownLink href="/solutions/asset">
+                        Asset Management
+                      </DropdownLink>
+                    </ul>
+                  </li>
+                  <li>
+                    <h3 className="dropdown-section">By Industry</h3>
+                    <ul className="space-y-1">
+                      <DropdownLink href="/solutions/growing">
+                        Growing Businesses
+                      </DropdownLink>
+                      <DropdownLink href="/solutions/ecommerce">
+                        E-commerce
+                      </DropdownLink>
+                      <DropdownLink href="/solutions/education">
+                        Education
+                      </DropdownLink>
+                      <DropdownLink href="/solutions/healthcare">
+                        Healthcare
+                      </DropdownLink>
+                    </ul>
+                  </li>
                 </ul>
-              </li>
-              <li>
-                <h3 className="dropdown-section">By Industry</h3>
-                <ul className="space-y-1">
-                  <DropdownLink href="/solutions/growing">Growing Businesses</DropdownLink>
-                  <DropdownLink href="/solutions/ecommerce">E-commerce</DropdownLink>
-                  <DropdownLink href="/solutions/education">Education</DropdownLink>
-                  <DropdownLink href="/solutions/healthcare">Healthcare</DropdownLink>
-                </ul>
-              </li>
-            </ul>
-          </NavigationMenu.Content>
-        </NavigationMenu.Item>
+              </NavigationMenu.Content>
+            </NavigationMenu.Item>
 
-        {/* Resources */}
-        <NavigationMenu.Item>
-          <NavigationMenu.Trigger className="nav-trigger">
-            Resources <CaretDownIcon />
-          </NavigationMenu.Trigger>
-          <NavigationMenu.Content className="dropdown">
-            <ul className="grid grid-cols-2 gap-8">
-              <li>
-                <h3 className="dropdown-section">Case Studies</h3>
-                <ul className="space-y-1">
-                  <DropdownLink href="/resources/case-studies/austin">Austin Community College</DropdownLink>
-                  <DropdownLink href="/resources/case-studies/hebron">Hebron Public School</DropdownLink>
-                  <DropdownLink href="/resources/case-studies/raksha">Raksha Technologies</DropdownLink>
-                  <DropdownLink href="/resources/case-studies/marion">Marion Central School</DropdownLink>
+            {/* Resources */}
+            <NavigationMenu.Item>
+              <NavigationMenu.Trigger className="nav-trigger">
+                Resources <CaretDownIcon />
+              </NavigationMenu.Trigger>
+              <NavigationMenu.Content className="dropdown">
+                <ul className="grid grid-cols-2 gap-8">
+                  <li>
+                    <h3 className="dropdown-section">Case Studies</h3>
+                    <ul className="space-y-1">
+                      <DropdownLink href="/resources/case-studies/austin">
+                        Austin Community College
+                      </DropdownLink>
+                      <DropdownLink href="/resources/case-studies/hebron">
+                        Hebron Public School
+                      </DropdownLink>
+                      <DropdownLink href="/resources/case-studies/raksha">
+                        Raksha Technologies
+                      </DropdownLink>
+                      <DropdownLink href="/resources/case-studies/marion">
+                        Marion Central School
+                      </DropdownLink>
+                    </ul>
+                  </li>
+                  <li>
+                    <h3 className="dropdown-section">Free Guides</h3>
+                    <ul className="space-y-1">
+                      <DropdownLink href="/resources/guides/evaluate">
+                        Evaluate IT Helpdesk
+                      </DropdownLink>
+                      <DropdownLink href="/resources/guides/features">
+                        10 Features
+                      </DropdownLink>
+                      <DropdownLink href="/resources/guides/best-practices">
+                        Best Practices
+                      </DropdownLink>
+                      <DropdownLink href="/resources/guides/faqs">
+                        FAQs
+                      </DropdownLink>
+                    </ul>
+                  </li>
                 </ul>
-              </li>
-              <li>
-                <h3 className="dropdown-section">Free Guides</h3>
-                <ul className="space-y-1">
-                  <DropdownLink href="/resources/guides/evaluate">Evaluate IT Helpdesk</DropdownLink>
-                  <DropdownLink href="/resources/guides/features">10 Features</DropdownLink>
-                  <DropdownLink href="/resources/guides/best-practices">Best Practices</DropdownLink>
-                  <DropdownLink href="/resources/guides/faqs">FAQs</DropdownLink>
-                </ul>
-              </li>
-            </ul>
-          </NavigationMenu.Content>
-        </NavigationMenu.Item>
+              </NavigationMenu.Content>
+            </NavigationMenu.Item>
 
-        <NavigationMenu.Item>
-          <NavigationMenu.Link asChild>
-            <Link className="nav-link" href="/">
-              Pricing
-            </Link>
-          </NavigationMenu.Link>
-        </NavigationMenu.Item>
-      </NavigationMenu.List>
+            <NavigationMenu.Item>
+              <NavigationMenu.Link asChild>
+                <Link className="nav-link" href="/">
+                  Pricing
+                </Link>
+              </NavigationMenu.Link>
+            </NavigationMenu.Item>
+          </NavigationMenu.List>
+        </NavigationMenu.Root>
 
-      {/* Auth buttons */}
-      <div className="flex items-center gap-3">
-        <Button asChild variant="surface" size="4">
-          <Link href="/signin">Sign in</Link>
-        </Button>
-        <Button asChild size="4">
-          <Link href="/signup">Try for free</Link>
-        </Button>
+        {/* Auth buttons */}
+        <div className="flex items-center gap-3">
+          <Button asChild variant="surface" size="4">
+            <Link href="/signin">Sign in</Link>
+          </Button>
+          <Button asChild size="4">
+            <Link href="/try-for-free">Try for free</Link>
+          </Button>
+        </div>
       </div>
-    </NavigationMenu.Root>
+    </nav>
   );
 }
 
 /* Reusable Dropdown Link */
-function DropdownLink({ href, children }: { href: string; children: React.ReactNode }) {
+function DropdownLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
   return (
     <li>
       <NavigationMenu.Link asChild>
