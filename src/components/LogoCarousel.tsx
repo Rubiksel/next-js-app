@@ -24,7 +24,7 @@ const logos = [
 
 export default function LogoCarousel() {
   return (
-    <section className="py-12 bg-gray-100">
+    <section>
       <div className="max-w-screen-xl mx-auto text-center mb-8">
         <h2 className="text-xl font-semibold">
           Trusted by over 2.5 million users
@@ -35,24 +35,24 @@ export default function LogoCarousel() {
       <div className="overflow-hidden relative">
         <div className="flex animate-marquee">
           {logos.map((logo, i) => (
-            <div key={i} className="mx-12 flex flex-shrink-0 items-center justify-center w-[150px] h-[150px] relative">
+            <div key={i} className="mx-5 flex flex-shrink-0 items-center justify-center w-[130px] h-[100px] relative">
               <Image
                 src={logo.src}
                 alt={logo.alt}
                 fill
-                className="object-contain"
+                className="object-contain grayscale"
               />
             </div>
           ))}
 
           {/* Duplicate logos for infinite loop effect */}
           {logos.map((logo, i) => (
-            <div key={`dup-${i}`} className="mx-12 flex flex-shrink-0 items-center justify-center w-[150px] h-[150px] relative">
+            <div key={`dup-${i}`} className="mx-5 flex flex-shrink-0 items-center justify-center w-[130px] h-[100px] relative">
               <Image
                 src={logo.src}
                 alt={logo.alt}
                 fill
-                className="object-contain"
+                className="object-contain grayscale"
               />
             </div>
           ))}

@@ -44,7 +44,7 @@ export default function ContentWithImage({
         </Link>
 
         {bullets.length > 0 && (
-          <ul className="space-y-2 text-sm text-gray-600 list-disc list-inside">
+          <ul className="space-y-2 text-sm text-gray-600 list-disc list-outside pl-10">
             {bullets.map((b, i) => (
               <li key={i}>
                 {b.href ? (
