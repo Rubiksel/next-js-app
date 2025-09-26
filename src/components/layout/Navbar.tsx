@@ -2,6 +2,24 @@
 
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { CaretDownIcon } from "@radix-ui/react-icons";
+import {
+  Cog,
+  Users,
+  Package,
+  Rocket,
+  ShoppingCart,
+  GraduationCap,
+  HeartPulse,
+  Building2,
+  BookOpen,
+  FileSearch,
+  ListChecks,
+  CheckCircle,
+  HelpCircle,
+  School,
+  Library,
+  NotebookText,
+} from "lucide-react";
 import { Button } from "@radix-ui/themes";
 import Link from "next/link";
 import Image from "next/image";
@@ -43,13 +61,13 @@ export default function Navbar() {
                   <li>
                     <h3 className="dropdown-section">By Department</h3>
                     <ul className="space-y-1">
-                      <DropdownLink href="/solutions/it">
+                      <DropdownLink href="/solutions/it" icon={<Cog />}>
                         IT Service Desk
                       </DropdownLink>
-                      <DropdownLink href="/solutions/customer">
+                      <DropdownLink href="/solutions/customer" icon={<Users />}>
                         Customer Service
                       </DropdownLink>
-                      <DropdownLink href="/solutions/asset">
+                      <DropdownLink href="/solutions/asset" icon={<Package />}>
                         Asset Management
                       </DropdownLink>
                     </ul>
@@ -57,16 +75,25 @@ export default function Navbar() {
                   <li>
                     <h3 className="dropdown-section">By Industry</h3>
                     <ul className="space-y-1">
-                      <DropdownLink href="/solutions/growing">
+                      <DropdownLink href="/solutions/growing" icon={<Rocket />}>
                         Growing Businesses
                       </DropdownLink>
-                      <DropdownLink href="/solutions/ecommerce">
+                      <DropdownLink
+                        href="/solutions/ecommerce"
+                        icon={<ShoppingCart />}
+                      >
                         E-commerce
                       </DropdownLink>
-                      <DropdownLink href="/solutions/education">
+                      <DropdownLink
+                        href="/solutions/education"
+                        icon={<GraduationCap />}
+                      >
                         Education
                       </DropdownLink>
-                      <DropdownLink href="/solutions/healthcare">
+                      <DropdownLink
+                        href="/solutions/healthcare"
+                        icon={<HeartPulse />}
+                      >
                         Healthcare
                       </DropdownLink>
                     </ul>
@@ -85,16 +112,28 @@ export default function Navbar() {
                   <li>
                     <h3 className="dropdown-section">Case Studies</h3>
                     <ul className="space-y-1">
-                      <DropdownLink href="/resources/case-studies/austin">
+                      <DropdownLink
+                        href="/resources/case-studies/austin"
+                        icon={<School />}
+                      >
                         Austin Community College
                       </DropdownLink>
-                      <DropdownLink href="/resources/case-studies/hebron">
+                      <DropdownLink
+                        href="/resources/case-studies/hebron"
+                        icon={<Library />}
+                      >
                         Hebron Public School
                       </DropdownLink>
-                      <DropdownLink href="/resources/case-studies/raksha">
+                      <DropdownLink
+                        href="/resources/case-studies/raksha"
+                        icon={<Building2 />}
+                      >
                         Raksha Technologies
                       </DropdownLink>
-                      <DropdownLink href="/resources/case-studies/marion">
+                      <DropdownLink
+                        href="/resources/case-studies/marion"
+                        icon={<NotebookText />}
+                      >
                         Marion Central School
                       </DropdownLink>
                     </ul>
@@ -102,16 +141,28 @@ export default function Navbar() {
                   <li>
                     <h3 className="dropdown-section">Free Guides</h3>
                     <ul className="space-y-1">
-                      <DropdownLink href="/resources/guides/evaluate">
+                      <DropdownLink
+                        href="/resources/guides/evaluate"
+                        icon={<FileSearch />}
+                      >
                         Evaluate IT Helpdesk
                       </DropdownLink>
-                      <DropdownLink href="/resources/guides/features">
+                      <DropdownLink
+                        href="/resources/guides/features"
+                        icon={<ListChecks />}
+                      >
                         10 Features
                       </DropdownLink>
-                      <DropdownLink href="/resources/guides/best-practices">
+                      <DropdownLink
+                        href="/resources/guides/best-practices"
+                        icon={<CheckCircle />}
+                      >
                         Best Practices
                       </DropdownLink>
-                      <DropdownLink href="/resources/guides/faqs">
+                      <DropdownLink
+                        href="/resources/guides/faqs"
+                        icon={<HelpCircle />}
+                      >
                         FAQs
                       </DropdownLink>
                     </ul>
@@ -119,6 +170,9 @@ export default function Navbar() {
                 </ul>
               </NavigationMenu.Content>
             </NavigationMenu.Item>
+            {/* <div className="perspective-[2000px] absolute left-0 top-full flex w-full justify-center">
+				<NavigationMenu.Viewport className="relative mt-2.5 h-[var(--radix-navigation-menu-viewport-height)] w-full origin-[top_center] overflow-hidden rounded-md bg-white transition-[width,_height] duration-300 data-[state=closed]:animate-scaleOut data-[state=open]:animate-scaleIn sm:w-[var(--radix-navigation-menu-viewport-width)]" />
+			</div> */}
 
             <NavigationMenu.Item>
               <NavigationMenu.Link asChild>
@@ -128,6 +182,7 @@ export default function Navbar() {
               </NavigationMenu.Link>
             </NavigationMenu.Item>
           </NavigationMenu.List>
+
         </NavigationMenu.Root>
 
         {/* Auth buttons */}
@@ -148,18 +203,25 @@ export default function Navbar() {
 function DropdownLink({
   href,
   children,
+  icon,
 }: {
   href: string;
   children: React.ReactNode;
+  icon?: React.ReactNode;
 }) {
   return (
     <li>
       <NavigationMenu.Link asChild>
         <Link
           href={href}
-          className="block rounded-md py-2 text-sm text-gray-700 hover:bg-lime-50 hover:text-lime-700 transition"
+          className="flex items-center gap-2 rounded-md py-2 px-2 text-sm text-gray-700 hover:bg-lime-50 hover:text-lime-700 transition"
         >
-          {children}
+          {icon && (
+            <span className="flex items-center justify-center w-4 h-4 text-lime-600">
+              {icon}
+            </span>
+          )}
+          <span className="leading-none">{children}</span>
         </Link>
       </NavigationMenu.Link>
     </li>

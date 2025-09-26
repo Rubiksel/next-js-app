@@ -27,7 +27,7 @@ export default function LogoCarousel() {
     <section>
       <div className="max-w-screen-xl mx-auto text-center mb-8">
         <h2 className="text-xl font-semibold">
-          Trusted by over 2.5 million users
+          Trusted by leading organizations
         </h2>
       </div>
 

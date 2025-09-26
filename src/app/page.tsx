@@ -1,12 +1,13 @@
 import Link from "next/link";
-import ContentWithImage from "../components/ContentWithImage";
+import ContentWithImage from "../components/sections/FeatureWithImage";
 import { Container, Flex, Box, Button, Text, Card } from "@radix-ui/themes";
-import LogoCarousel from "../components/LogoCarousel";
-import AccordionGrid from "../components/AccordionGrid";
-import Testimonials from "../components/Testimonials";
-import CtaSection from "../components/CtaSection";
-import WhatsNewSection, { NewsCard } from "../components/WhatsNewSection";
+import LogoCarousel from "../components/sections/TrustedByCarousel";
+import AccordionGrid from "../components/sections/DepartmentsAccordion";
+import Testimonials from "../components/sections/TestimonialsSection";
+import CtaSection from "../components/sections/CtaSection";
+import WhatsNewSection, { NewsCard } from "../components/sections/NewsSection";
 import { CheckCircledIcon } from "@radix-ui/react-icons";
+import { BookOpenIcon, RocketIcon, TagIcon } from "lucide-react";
 
 const departmentItems = [
   {
@@ -115,7 +116,7 @@ const newsItems: NewsCard[] = [
 export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen ">
-      <section className=" pt-24 bg-gradient-to-b from-white to-gray-100 text-center">
+      <section className=" pt-12 bg-gradient-to-b from-white to-gray-100 text-center">
         <Container size="3">
           {/* Title */}
           <h1 className="text-5xl sm:text-6xl font-extrabold tracking-tight leading-snug mb-8 bg-gradient-to-r from-gray-900 to-gray-800 bg-clip-text text-transparent">
@@ -125,11 +126,14 @@ export default function HomePage() {
           {/* Subtitle */}
           <p className="text-xl text-gray-700 mb-10">
             Helping over{" "}
-            <span className="font-bold text-lime-600">2.5 million users</span>{" "}
+            <span className="font-extrabold text-lime-600 text-2xl">
+              2.5 million users
+            </span>{" "}
             daily
           </p>
 
           {/* CTAs */}
+
           <Flex justify="center" gap="5" wrap="wrap" className="mb-10">
             <Button size="4" asChild>
               <Link href="/try-for-free">Try for free</Link>
@@ -159,8 +163,12 @@ export default function HomePage() {
         <div className="max-w-screen-xl mx-auto px-4">
           <Flex gap="8" justify="center" wrap="wrap">
             {/* Card 1 */}
-            <Card className="w-80 rounded-2xl border-t-4 border-lime-500 bg-gradient-to-b from-white to-gray-50 shadow-md hover:shadow-xl transition-all duration-300">
+            <Card
+              className="w-80 rounded-2xl border-t-4 border-lime-500 bg-white shadow-md
+                hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+            >
               <Flex direction="column" gap="3" className="p-6 text-left">
+                <RocketIcon className="w-8 h-8 text-lime-600 mb-2" />
                 <Text size="6" weight="bold" className="text-gray-900">
                   Centralize requests
                 </Text>
@@ -172,8 +180,12 @@ export default function HomePage() {
             </Card>
 
             {/* Card 2 */}
-            <Card className="w-80 rounded-2xl border-t-4 border-indigo-500 bg-gradient-to-b from-white to-gray-50 shadow-md hover:shadow-xl transition-all duration-300">
+            <Card
+              className="w-80 rounded-2xl border-t-4 border-lime-500 bg-white shadow-md
+                hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+            >
               <Flex direction="column" gap="3" className="p-6 text-left">
+                <BookOpenIcon className="w-8 h-8 text-indigo-600 mb-2" />
                 <Text size="6" weight="bold" className="text-gray-900">
                   Knowledge base
                 </Text>
@@ -185,8 +197,12 @@ export default function HomePage() {
             </Card>
 
             {/* Card 3 */}
-            <Card className="w-80 rounded-2xl border-t-4 border-pink-500 bg-gradient-to-b from-white to-gray-50 shadow-md hover:shadow-xl transition-all duration-300">
+            <Card
+              className="w-80 rounded-2xl border-t-4 border-lime-500 bg-white shadow-md
+                hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+            >
               <Flex direction="column" gap="3" className="p-6 text-left">
+                <TagIcon className="w-8 h-8 text-pink-500 mb-2" />
                 <Text size="6" weight="bold" className="text-gray-900">
                   Assign, prioritize, tag
                 </Text>
@@ -197,6 +213,11 @@ export default function HomePage() {
               </Flex>
             </Card>
           </Flex>
+        </div>
+      </section>
+      <section className="pb-16 px-6 bg-gray-100 text-center">
+        <div className="max-w-screen-xl mx-auto px-4">
+          <LogoCarousel />
         </div>
       </section>
       <section className="pb-16 pt-16">
@@ -241,32 +262,29 @@ export default function HomePage() {
 
       {/* Info Section */}
 
-      <section className="py-16 px-6 bg-gray-100 text-center">
-        <div className="max-w-screen-xl mx-auto px-4">
-          <LogoCarousel />
-        </div>
-      </section>
-      <section className="py-16 px-16">
+      <section className="py-16 px-16 bg-gray-100">
         <h2 className="text-2xl font-bold text-center mb-10">
           Mojo Helpdesk Is Used In All Departments Of An Organization
         </h2>
-        <AccordionGrid items={departmentItems} columns={2} />
+        <AccordionGrid items={departmentItems} columns={1} />
+      </section>
+      <section className="py-16 px-16 ">
+        <div className="max-w-screen-xl mx-auto px-4">
+          <ContentWithImage
+            image={
+              <img
+                src="/call-center.jpg"
+                alt="Call Center"
+                className="rounded-lg shadow-lg w-full h-auto object-cover"
+              />
+            }
+            title="Designed with Purpose"
+            subtitle="Mojo Helpdesk is an easy to use cloud ticket tracking that helps companies provide superior employee & customer service at a lower cost. Over 10 years ago, Metadot, the Mojo's parent company needed a help desk that would give our customers personal, dynamic, and natural experiences. We couldn’t find one that met our needs, so we built it. We've now made this available for organization like yours, and today thousands of educational organizations, from small to large, use Mojo Helpdesk to manage their IT, maintenance requests from staff, faculty and more."
+            cta={{ label: "Try for free", href: "/try-for-free" }}
+          />
+        </div>
       </section>
       <section className="py-16 px-16 bg-gray-100">
-        <ContentWithImage
-          image={
-            <img
-              src="/call-center.jpg"
-              alt="Call Center"
-              className="rounded-lg shadow-lg w-full h-auto object-cover"
-            />
-          }
-          title="Designed with Purpose"
-          subtitle="Mojo Helpdesk is an easy to use cloud ticket tracking that helps companies provide superior employee & customer service at a lower cost. Over 10 years ago, Metadot, the Mojo's parent company needed a help desk that would give our customers personal, dynamic, and natural experiences. We couldn’t find one that met our needs, so we built it. We've now made this available for organization like yours, and today thousands of educational organizations, from small to large, use Mojo Helpdesk to manage their IT, maintenance requests from staff, faculty and more."
-          cta={{ label: "Try for free", href: "/try-for-free" }}
-        />
-      </section>
-      <section className="py-16 px-16">
         <Testimonials
           items={[
             {
@@ -291,7 +309,7 @@ export default function HomePage() {
         />
       </section>
       <CtaSection />
-      <section className="px-16 py-16">
+      <section className="px-16">
         <WhatsNewSection items={newsItems} />
       </section>
     </div>

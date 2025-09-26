@@ -1,3 +1,4 @@
+import { Button } from "@radix-ui/themes";
 import Link from "next/link";
 
 interface ContentWithImageProps {
@@ -36,15 +37,14 @@ export default function ContentWithImage({
         <h2 className="text-3xl font-bold leading-tight mb-3">{title}</h2>
         <p className="text-xl text-gray-500 mb-6">{subtitle}</p>
 
-        <Link
-          href={cta.href}
-          className="inline-block bg-black text-white px-5 py-3 mb-4 rounded-md font-medium hover:bg-gray-800"
-        >
-          {cta.label}
-        </Link>
+        <Button size="4" asChild>
+          <Link href={cta.href}>
+            {cta.label}
+          </Link>
+        </Button>
 
         {bullets.length > 0 && (
-          <ul className="space-y-2 text-sm text-gray-600 list-disc list-outside pl-10">
+          <ul className="space-y-2 mt-3 text-sm text-gray-600 list-disc list-outside pl-10">
             {bullets.map((b, i) => (
               <li key={i}>
                 {b.href ? (

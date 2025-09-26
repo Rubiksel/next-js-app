@@ -1,8 +1,8 @@
 import "@radix-ui/themes/styles.css";
 import "./globals.css";
 import { Theme } from "@radix-ui/themes";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 import { Inter, Poppins } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
